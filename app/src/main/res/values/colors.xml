@@ -4,10 +4,11 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="backgroundCard">#FFCEF9</color>
-    <color name="borderGeneric">#FFFFFF</color>
     <color name="borderSexy">#FF4DFA</color>
-    <color name="borderEdgy">#5842FF</color>
+    <color name="borderSad">#332EFF</color>
+    <color name="borderEdgy">#FF253D</color>
     <color name="borderThoughtful">#000000</color>
     <color name="borderPersonal">#F1FF6A</color>
+    <color name="borderGeneric">#FFFFFF</color>
     <color name="borderUnclassified">#FFFFFF</color>
 </resources>

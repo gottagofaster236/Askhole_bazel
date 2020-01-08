@@ -83,8 +83,8 @@ class MainActivity : AppCompatActivity(), CardStackListener {
             cardStackView.rewind()
         }
 
-        val like = findViewById<View>(R.id.hole_button)
-        like.setOnClickListener {
+        val askholeButton = findViewById<View>(R.id.hole_button)
+        askholeButton.setOnClickListener {
             val setting = SwipeAnimationSetting.Builder()
                 .setDirection(Direction.Right)
                 .setDuration(Duration.Normal.duration)
