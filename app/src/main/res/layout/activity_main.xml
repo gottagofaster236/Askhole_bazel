@@ -70,7 +70,8 @@
                 android:layout_height="match_parent"
                 android:layout_above="@+id/button_container"
                 android:padding="4dp"
-                android:clipToPadding="false">
+                android:clipToPadding="false"
+                >
             </com.yuyakaido.android.cardstackview.CardStackView>
 
         </RelativeLayout>
