@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
 import com.yuyakaido.android.cardstackview.*
 
-class MainActivity : AppCompatActivity(), CardStackListener {
+class SwipeActivity : AppCompatActivity(), CardStackListener {
 
     private val drawerLayout by lazy { findViewById<DrawerLayout>(R.id.drawer_layout) }
     private val cardStackView by lazy { findViewById<CardStackView>(R.id.card_stack_view) }
