@@ -28,6 +28,7 @@ class SwipeActivity : AppCompatActivity(), CardStackListener {
         setupButton()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawers()
