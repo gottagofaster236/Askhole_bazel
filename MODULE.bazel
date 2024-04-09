@@ -1,0 +1,50 @@
+bazel_dep(name = "rules_java", version = "7.5.0")
+
+bazel_dep(name = "bazel_skylib", version = "1.5.0")
+
+bazel_dep(name = "rules_kotlin", version = "1.9.1")
+
+bazel_dep(name = "rules_android", version = "0.2.0")
+
+RULES_ANDROID_COMMIT = "d3c0757dde5698c8e559804f8204448186ba0f50"
+
+git_override(
+    module_name = "rules_android",
+    remote = "https://github.com/bazelbuild/rules_android",
+    commit = RULES_ANDROID_COMMIT,
+)
+
+register_toolchains(
+    "@rules_android//toolchains/android:android_default_toolchain",
+    "@rules_android//toolchains/android_sdk:android_sdk_tools",
+)
+
+bazel_dep(name = "rules_jvm_external", version = "6.0")
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+
+maven.install(
+    version_conflict_policy = "pinned",
+    artifacts = [
+        "androidx.appcompat:appcompat:1.6.1",
+        "androidx.recyclerview:recyclerview:1.3.2",
+        "androidx.cardview:cardview:1.0.0",
+        "com.google.android.material:material:1.11.0",
+        "com.yuyakaido.android:card-stack-view:2.3.4",
+        "com.makeramen:roundedimageview:2.3.0",
+        # Manually specify the versions of some transitive deps
+        "androidx.lifecycle:lifecycle-runtime:2.6.1",
+        "com.google.guava:guava:33.1.0-android"
+    ],
+    repositories = [
+        "https://maven.google.com",
+        "https://repo1.maven.org/maven2",
+        "https://jcenter.bintray.com/",
+    ],
+)
+
+use_repo(maven, "maven")
+
+remote_android_extensions = use_extension("@bazel_tools//tools/android:android_extensions.bzl", "remote_android_tools_extensions")
+
+use_repo(remote_android_extensions, "android_tools", "android_gmaven_r8")
