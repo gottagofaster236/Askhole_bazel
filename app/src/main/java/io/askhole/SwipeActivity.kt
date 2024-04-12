@@ -5,13 +5,22 @@ import android.view.View
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.LinearInterpolator
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
 import com.yuyakaido.android.cardstackview.*
+import androidx.compose.runtime.setValue
+
 
 class SwipeActivity : AppCompatActivity(), CardStackListener {
 
@@ -20,12 +29,31 @@ class SwipeActivity : AppCompatActivity(), CardStackListener {
     private val manager by lazy { CardStackLayoutManager(this, this) }
     private val adapter by lazy { CardStackAdapter(QuestionList.randomQuestions(10)) }
 
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setupButton()
+//    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setupNavigation()
-        setupCardStackView()
-        setupButton()
+        setContent {
+            ActivityContent()
+        }
+    }
+
+    @Preview
+    @Composable
+    fun ActivityContent() {
+        Text("Hello, world!")
+        var clickedTimes by mutableStateOf(0)
+        Button(onClick = { clickedTimes++ }) {
+            val text = if (clickedTimes == 0) {
+                "Click me!!!"
+            } else {
+                "Clicked $clickedTimes times"
+            }
+            Text(text = text)
+        }
     }
 
     @Deprecated("Deprecated in Java")

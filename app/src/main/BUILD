@@ -10,6 +10,7 @@ kt_android_library(
     manifest = "AndroidManifest.xml",
     resource_files = glob(["res/**"]),
     custom_package = "io.askhole",
+    plugins = ["//app:jetpack_compose_compiler_plugin"],
     deps = [
         "@maven//:androidx_appcompat_appcompat",
         "@maven//:androidx_recyclerview_recyclerview",
@@ -19,5 +20,13 @@ kt_android_library(
         "@maven//:com_makeramen_roundedimageview",
         "@maven//:androidx_lifecycle_lifecycle_runtime",
         "@maven//:com_google_guava_guava",
+
+        "@maven//:androidx_activity_activity_compose",
+        "@maven//:androidx_compose_material_material",
+        "@maven//:androidx_compose_runtime_runtime",
+        "@maven//:androidx_compose_ui_ui",
+        "@maven//:androidx_compose_ui_ui_tooling",
+        "@maven//:androidx_core_core_ktx",
+        "@maven//:org_jetbrains_kotlin_kotlin_stdlib",
     ],
 )
