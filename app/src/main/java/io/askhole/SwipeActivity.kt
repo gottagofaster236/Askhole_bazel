@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DiffUtil
 import com.yuyakaido.android.cardstackview.*
+import io.askhole.idk.R
 
 class SwipeActivity : AppCompatActivity(), CardStackListener {
 

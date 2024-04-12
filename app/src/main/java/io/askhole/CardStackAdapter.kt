@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.makeramen.roundedimageview.RoundedImageView
 import io.askhole.Question.Companion.QuestionType.*
+import io.askhole.idk.R
 
 
 class CardStackAdapter(
